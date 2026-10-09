@@ -294,49 +294,6 @@
     /* ===== FOOTER ===== */
     .footer{border-top:1px solid var(--border);padding:32px 0;text-align:center;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);transition:border-color var(--transition);}
 
-    /* ===== AI ASSISTANT FAB ===== */
-    .ai-fab{position:fixed;left:24px;bottom:32px;z-index:200;}
-    .ai-fab-btn { width: 58px; height: 58px; border-radius: 50%; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; position: relative; background: linear-gradient(135deg, #1a0533, #0d1a33); box-shadow: 0 4px 24px rgba(124,58,237,0.4), 0 0 0 1px rgba(124,58,237,0.3); transition: transform 0.2s, box-shadow 0.2s; overflow: visible; }
-    .ai-fab-btn:hover{transform:scale(1.08);box-shadow:0 6px 32px rgba(124,58,237,0.6),0 0 0 1px rgba(124,58,237,0.5);}
-    .ai-head-svg { width: 34px; height: 34px; position: relative; z-index: 1; }
-    .ai-fab-btn::before { content: ''; position: absolute; inset: -4px; border-radius: 50%; border: 1.5px solid rgba(124,58,237,0.5); animation: fab-ring 2.5s ease-in-out infinite; }
-    .ai-fab-btn::after { content: ''; position: absolute; inset: -8px; border-radius: 50%; border: 1px solid rgba(0,212,255,0.25); animation: fab-ring 2.5s ease-in-out infinite 0.8s; }
-    @keyframes fab-ring{0%,100%{transform:scale(1);opacity:0.8;}50%{transform:scale(1.08);opacity:0.3;}}
-    .ai-fab-tooltip { position: absolute; left: 68px; top: 50%; transform: translateY(-50%); background: var(--surface); border: 1px solid rgba(124,58,237,0.4); color: #a78bfa; font-family: 'JetBrains Mono', monospace; font-size: 11px; padding: 6px 12px; border-radius: 20px; white-space: nowrap; pointer-events: none; opacity: 0; transition: opacity 0.2s; }
-    .ai-fab-btn:hover .ai-fab-tooltip{opacity:1;}
-
-    /* ===== AI CHAT PANEL ===== */
-    .ai-chat-panel{position:fixed;left:24px;bottom:106px;width:340px;max-height:490px;background:var(--surface);border:1px solid var(--border);border-radius:16px;display:flex;flex-direction:column;z-index:199;box-shadow:0 20px 60px var(--shadow);transition:opacity 0.3s,transform 0.3s,background var(--transition),border-color var(--transition);opacity:0;transform:translateY(20px) scale(0.95);pointer-events:none;overflow:hidden;}
-    .ai-chat-panel.open{opacity:1;transform:translateY(0) scale(1);pointer-events:all;}
-    .ai-chat-header{display:flex;align-items:center;gap:12px;padding:14px 16px;border-bottom:1px solid var(--border);flex-shrink:0;background:linear-gradient(90deg,rgba(124,58,237,0.08),rgba(0,212,255,0.05));}
-    .ai-avatar-wrap { position: relative; flex-shrink: 0; }
-    .ai-avatar-svg { width: 38px; height: 38px; display: block; }
-    .ai-chat-title{font-size:14px;font-weight:700;}
-    .ai-chat-sub{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--green);}
-    .ai-chat-close{margin-left:auto;background:none;border:none;color:var(--muted);cursor:pointer;font-size:16px;padding:4px;transition:color 0.2s;}
-    .ai-chat-close:hover{color:var(--text);}
-    .ai-chat-messages{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;min-height:200px;}
-    .ai-chat-messages::-webkit-scrollbar{width:4px;}
-    .ai-chat-messages::-webkit-scrollbar-track{background:transparent;}
-    .ai-chat-messages::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px;}
-    .chat-msg{display:flex;flex-direction:column;gap:4px;max-width:86%;}
-    .chat-msg.bot{align-self:flex-start;}.chat-msg.user{align-self:flex-end;}
-    .chat-bubble{padding:10px 14px;border-radius:12px;font-size:13px;line-height:1.55;}
-    .chat-msg.bot .chat-bubble{background:var(--surface2);border:1px solid var(--border);color:var(--text);border-bottom-left-radius:4px;}
-    .chat-msg.user .chat-bubble{background:var(--accent);color:var(--bg);font-weight:600;border-bottom-right-radius:4px;}
-    .chat-typing{display:flex;align-items:center;gap:5px;padding:10px 14px;background:var(--surface2);border:1px solid var(--border);border-radius:12px;border-bottom-left-radius:4px;align-self:flex-start;}
-    .chat-typing span{width:6px;height:6px;background:var(--muted);border-radius:50%;animation:typing-dot 1.2s infinite;}
-    .chat-typing span:nth-child(2){animation-delay:0.2s;}.chat-typing span:nth-child(3){animation-delay:0.4s;}
-    @keyframes typing-dot{0%,60%,100%{opacity:0.3;transform:translateY(0);}30%{opacity:1;transform:translateY(-3px);}}
-    .chat-suggestions{display:flex;flex-wrap:wrap;gap:6px;padding:0 16px 10px;}
-    .chat-suggestion{font-family:'JetBrains Mono',monospace;font-size:10px;padding:5px 10px;border-radius:20px;background:var(--surface2);border:1px solid var(--border);color:#a78bfa;cursor:pointer;transition:background 0.15s,border-color 0.15s;}
-    .chat-suggestion:hover{background:rgba(124,58,237,0.12);border-color:#a78bfa;}
-    .ai-chat-input-row{display:flex;gap:8px;padding:12px 16px;border-top:1px solid var(--border);flex-shrink:0;}
-    .ai-chat-input{flex:1;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:9px 12px;color:var(--text);font-family:'Sora',sans-serif;font-size:13px;outline:none;transition:border-color 0.2s,background var(--transition);}
-    .ai-chat-input:focus{border-color:rgba(124,58,237,0.5);}
-    .ai-chat-input::placeholder{color:var(--muted);opacity:0.7;}
-    .ai-chat-send{width:36px;height:36px;border-radius:8px;background:linear-gradient(135deg,#7c3aed,var(--accent));border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;transition:opacity 0.2s;flex-shrink:0;}
-    .ai-chat-send:hover{opacity:0.85;}
 
     /* ===== SCROLL TO TOP ===== */
     .scroll-top{position:fixed;right:24px;bottom:32px;z-index:200;width:44px;height:44px;border-radius:50%;background:var(--surface);border:1px solid var(--border);color:var(--accent);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(10px);transition:opacity 0.3s,transform 0.3s,background var(--transition);}
@@ -380,7 +337,6 @@
       .form-row { grid-template-columns: 1fr; }
       .work-header { flex-direction: column; }
       .work-meta { align-items: flex-start; }
-      .ai-chat-panel { width: calc(100vw - 48px); }
     }
     @media (max-width: 600px) {
       .container { padding: 0 16px; }
@@ -403,8 +359,6 @@
       .cert-logo { width: 40px; height: 40px; font-size: 18px; }
       .contact-form-wrap { padding: 24px 18px; }
       .contact-social { flex-wrap: wrap; }
-      .ai-chat-panel { width: calc(100vw - 32px); left: 16px; bottom: 96px; }
-      .ai-fab { left: 16px; bottom: 24px; }
       .scroll-top { right: 16px; bottom: 24px; }
       .nav-resume-btn { display: none; }
       .resume-strip { flex-direction: column; align-items: flex-start; gap: 12px; }
@@ -506,7 +460,7 @@
               <img src="profile.png" alt="Anish Giri" />
               <div class="hero-photo-status">
                 <div class="status-dot"></div>
-                <span>Open to work · Sydney, AU</span>
+                <span>Open to work · Darwin, NT</span>
               </div>
             </div>
           </div>
@@ -530,7 +484,7 @@
           <div class="about-stat stagger-child"><span class="about-stat-num">1+</span><div class="about-stat-label">Year IT Support Experience</div></div>
           <div class="about-stat stagger-child"><span class="about-stat-num">3</span><div class="about-stat-label">Industry Certifications</div></div>
           <div class="about-stat stagger-child"><span class="about-stat-num">6</span><div class="about-stat-label">Hands-On Projects</div></div>
-          <div class="about-stat stagger-child"><span class="about-stat-num">Sydney</span><div class="about-stat-label">Based in NSW, AU</div></div>
+          <div class="about-stat stagger-child"><span class="about-stat-num">Darwin</span><div class="about-stat-label">Based in NT, AU</div></div>
           <div class="about-highlight stagger-child">🎯 Currently targeting IT Support Engineer roles all over Australia. Open to hybrid and on-site positions.</div>
         </div>
       </div>
@@ -648,7 +602,7 @@
           <p>Currently looking for opportunities in IT Support Engineer and networking. Reach out via the form, email, or LinkedIn.</p>
           <div class="contact-item"><div class="contact-icon"><i class="fa-solid fa-envelope"></i></div><div class="contact-item-text"><div class="contact-item-label">Email</div><a href="mailto:anishgiri915@gmail.com">anishgiri915@gmail.com</a></div></div>
           <div class="contact-item"><div class="contact-icon"><i class="fa-solid fa-phone"></i></div><div class="contact-item-text"><div class="contact-item-label">Phone</div><a href="tel:+61414720977">+61 414 720 977</a></div></div>
-          <div class="contact-item"><div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div><div class="contact-item-text"><div class="contact-item-label">Location</div><span style="font-size:14px;color:var(--text);">Penshurst, NSW 2222 · Sydney, Australia</span></div></div>
+          <div class="contact-item"><div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div><div class="contact-item-text"><div class="contact-item-label">Location</div><span style="font-size:14px;color:var(--text);">Darwin, NT · Australia</span></div></div>
           <div class="contact-social">
             <a href="https://www.linkedin.com/in/anish-giri-1b8530228" target="_blank" rel="noopener noreferrer" class="social-btn"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
             <a href="https://anishhgirii7.github.io/anish.portfolio/" target="_blank" rel="noopener noreferrer" class="social-btn"><i class="fa-brands fa-github"></i> Portfolio</a>
@@ -674,83 +628,8 @@
     </div>
   </section>
 
-  <footer class="footer"><div class="container"><p>© 2026 Anish Giri · IT Support Specialist · Sydney, Australia</p></div></footer>
+  <footer class="footer"><div class="container"><p>© 2026 Anish Giri · IT Support Specialist · Darwin, NT, Australia</p></div></footer>
 
-  <!-- AI FAB -->
-  <div class="ai-fab">
-    <button class="ai-fab-btn" id="aiFabBtn" aria-label="Open AI assistant">
-      <svg class="ai-head-svg" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <line x1="17" y1="3" x2="17" y2="7" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round"/>
-        <circle cx="17" cy="2.5" r="1.5" fill="#00d4ff"/>
-        <rect x="5" y="7" width="24" height="18" rx="5" fill="url(#hg)" stroke="#00d4ff" stroke-width="1"/>
-        <rect x="9" y="12" width="5" height="4" rx="1.5" fill="#00d4ff" opacity="0.9"/>
-        <rect x="20" y="12" width="5" height="4" rx="1.5" fill="#00d4ff" opacity="0.9"/>
-        <rect x="10.5" y="13" width="2" height="2" rx="0.5" fill="white" opacity="0.6"/>
-        <rect x="21.5" y="13" width="2" height="2" rx="0.5" fill="white" opacity="0.6"/>
-        <rect x="10" y="20" width="14" height="2.5" rx="1.25" fill="#7c3aed" opacity="0.8"/>
-        <rect x="11" y="20.5" width="4" height="1.5" rx="0.75" fill="#a78bfa" opacity="0.6"/>
-        <rect x="17" y="20.5" width="4" height="1.5" rx="0.75" fill="#a78bfa" opacity="0.6"/>
-        <rect x="2" y="12" width="3" height="6" rx="1.5" fill="#0d1a33" stroke="#00d4ff" stroke-width="1"/>
-        <rect x="29" y="12" width="3" height="6" rx="1.5" fill="#0d1a33" stroke="#00d4ff" stroke-width="1"/>
-        <defs>
-          <linearGradient id="hg" x1="5" y1="7" x2="29" y2="25" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stop-color="#1a0d33"/>
-            <stop offset="100%" stop-color="#0d1a33"/>
-          </linearGradient>
-        </defs>
-      </svg>
-      <div class="ai-fab-tooltip">Ask about Anish ✨</div>
-    </button>
-  </div>
-
-  <!-- AI CHAT PANEL -->
-  <div class="ai-chat-panel" id="aiChatPanel">
-    <div class="ai-chat-header">
-      <div class="ai-avatar-wrap">
-        <svg class="ai-avatar-svg" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="19" cy="19" r="19" fill="url(#ag)"/>
-          <line x1="19" y1="3" x2="19" y2="8" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round"/>
-          <circle cx="19" cy="2.5" r="2" fill="#00d4ff"/>
-          <rect x="7" y="8" width="24" height="18" rx="5" fill="#0d1a33" stroke="#00d4ff" stroke-width="1"/>
-          <rect x="10" y="13" width="6" height="4.5" rx="1.5" fill="#00d4ff"/>
-          <rect x="22" y="13" width="6" height="4.5" rx="1.5" fill="#00d4ff"/>
-          <rect x="11.5" y="14" width="2.5" height="2.5" rx="0.8" fill="white" opacity="0.7"/>
-          <rect x="23.5" y="14" width="2.5" height="2.5" rx="0.8" fill="white" opacity="0.7"/>
-          <rect x="12" y="21.5" width="14" height="2.5" rx="1.25" fill="#7c3aed"/>
-          <rect x="13" y="22" width="3.5" height="1.5" rx="0.6" fill="#a78bfa" opacity="0.7"/>
-          <rect x="18" y="22" width="3.5" height="1.5" rx="0.6" fill="#a78bfa" opacity="0.7"/>
-          <rect x="3" y="13" width="4" height="7" rx="2" fill="#0d1a33" stroke="#00d4ff" stroke-width="1"/>
-          <rect x="31" y="13" width="4" height="7" rx="2" fill="#0d1a33" stroke="#00d4ff" stroke-width="1"/>
-          <rect x="15" y="26" width="8" height="3" rx="1" fill="#1a0d33" stroke="#7c3aed" stroke-width="0.8"/>
-          <defs>
-            <linearGradient id="ag" x1="0" y1="0" x2="38" y2="38" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#1a0d33"/>
-              <stop offset="100%" stop-color="#0d1a2f"/>
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
-      <div>
-        <div class="ai-chat-title">Anish's AI Assistant</div>
-        <div class="ai-chat-sub">● Online · Ask me anything</div>
-      </div>
-      <button class="ai-chat-close" id="aiChatClose"><i class="fa-solid fa-xmark"></i></button>
-    </div>
-    <div class="ai-chat-messages" id="chatMessages">
-      <div class="chat-msg bot"><div class="chat-bubble">Hey! 👋 I'm Anish's AI assistant. I can tell you about his skills, experience, projects, or help you decide if he's a good fit for your team. What would you like to know?</div></div>
-    </div>
-    <div class="chat-suggestions" id="chatSuggestions">
-      <button class="chat-suggestion" data-q="What are Anish's hobbies and interests outside of work?">Hobbies</button>
-      <button class="chat-suggestion" data-q="How does Anish handle pressure or a stressful outage?">Under pressure</button>
-      <button class="chat-suggestion" data-q="How does Anish prefer to learn new things?">Learning style</button>
-      <button class="chat-suggestion" data-q="What motivates Anish in his IT career?">Motivation</button>
-      <button class="chat-suggestion" data-q="What languages does Anish speak?">Languages</button>
-    </div>
-    <div class="ai-chat-input-row">
-      <input class="ai-chat-input" id="chatInput" type="text" placeholder="Ask about skills, experience..." />
-      <button class="ai-chat-send" id="chatSend"><i class="fa-solid fa-paper-plane"></i></button>
-    </div>
-  </div>
 
   <!-- SCROLL TO TOP -->
   <button class="scroll-top" id="scrollTop" aria-label="Scroll to top"><i class="fa-solid fa-arrow-up"></i></button>
@@ -837,176 +716,6 @@
       } catch { sb.disabled = false; sb.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Message'; alert('Network error. Email anishgiri915@gmail.com directly.'); }
     });
 
-    /* AI CHAT — Powered by Anthropic API */
-    const fabBtn = document.getElementById('aiFabBtn');
-    const panel = document.getElementById('aiChatPanel');
-    const closeBtn = document.getElementById('aiChatClose');
-    const msgs = document.getElementById('chatMessages');
-    const inp = document.getElementById('chatInput');
-    const sendBtn = document.getElementById('chatSend');
-    const suggs = document.getElementById('chatSuggestions');
-
-    fabBtn.addEventListener('click', () => panel.classList.toggle('open'));
-    closeBtn.addEventListener('click', () => panel.classList.remove('open'));
-
-    // ── Full knowledge base about Anish — synced with latest resume ────────
-    const ANISH_SYSTEM_PROMPT = `You are Anish Giri's personal AI assistant embedded on his portfolio website (anish.website).
-Your job is to answer questions about Anish in a friendly, professional, and accurate way — as if you know him personally.
-Keep answers concise (2–4 sentences max) unless the question requires more detail. Never make things up; if unsure, say so.
-
-=== PROFESSIONAL PROFILE ===
-- Full name: Anish Giri
-- Role: IT Support Engineer / IT Graduate
-- Location: Penshurst, NSW 2222, Sydney, Australia
-- Email: anishgiri915@gmail.com | Phone: +61 414 720 977
-- LinkedIn: linkedin.com/in/anish-giri-1b8530228
-- Status: Actively looking for IT Support Engineer roles in Sydney. Open to hybrid and on-site.
-
-=== PROFESSIONAL SUMMARY ===
-Recently graduated with a Bachelor of Information Technology, holding Google IT Support Professional and Microsoft 365 Fundamentals certifications. Experienced in Microsoft 365 administration, Active Directory, email security, and end-user support across Windows environments. Skilled at diagnosing and resolving hardware, software, and network issues with a structured, user-focused approach.
-
-=== EDUCATION ===
-- Bachelor of Information Technology, CIHE Australia, Sydney (Dec 2024 – Jun 2026)
-- Advanced Diploma of Information Technology, Queensford College, Sydney (Jan 2024 – Dec 2024)
-
-=== CERTIFICATIONS ===
-- Google IT Support Professional Certificate
-- Microsoft 365 Fundamentals
-- Python 101 for Data Science
-
-=== WORK EXPERIENCE ===
-- IT Support Intern at Newa IT Solutions, Sydney (Mar 2025 – Ongoing)
-  • Resolved hardware, software, and network issues for end users, maintaining and extending relationships
-  • Managed Active Directory user accounts — provisioning, password resets, and group membership updates
-  • Administered Microsoft 365 environment: Exchange Online, Teams, SharePoint, and license management
-  • Configured and maintained workstations, peripherals, and network equipment from initial setup
-  • Logged and tracked support requests via FreshService, ensuring timely resolution within SLA targets
-  • Translated technical solutions into clear, non-technical language, ensuring a positive end-user experience
-
-=== TECHNICAL SKILLS ===
-- OS & Desktop: Windows 10/11, Windows Server 2019, Active Directory, Remote Desktop (RDP), Basic Linux (Ubuntu)
-- Microsoft 365: M365 Admin Center, Exchange Online, SharePoint, Teams, Entra ID / Azure AD, Shared Mailboxes, RBAC, MFA enforcement
-- Email Security: Mail flow rules, anti-spam policies, Microsoft Defender, Secure Score, quarantine management, message trace
-- IT Support & Helpdesk: FreshService ticketing, hardware setup & troubleshooting, device configuration, printer & peripheral support
-- Networking: TCP/IP, DNS, DHCP, subnetting, VLANs, NAT/PAT, Wi-Fi troubleshooting, Cisco IOS CLI, Wireshark
-- Dev/Scripting: Python, SQL/MySQL, JavaScript, HTML/CSS, Git/GitHub
-- Tools: Cisco Packet Tracer 8.2, Oracle VirtualBox, Figma, VS Code
-
-=== PROJECTS (6 completed) ===
-1. Static Routing & WAN Fault Diagnosis — diagnosed live connectivity failure in multi-site WAN simulation (Cisco Packet Tracer, 4 routers)
-2. EIGRP Multi-Site WAN Network — built a 3-site corporate WAN with dynamic EIGRP routing, verified convergence via Cisco IOS
-3. HSRP Gateway Redundancy — dual-router failover with zero manual intervention when the primary fails
-4. M365 Groups, Teams & Access Control (RBAC) — Security Groups, Distribution Lists, M365 Groups with Teams workspaces, live permission boundary testing on real M365 tenant
-5. Shared Mailboxes, SharePoint & Resource Mailboxes — end-to-end collaborative email infrastructure with tiered SharePoint permissions and resource mailboxes
-6. Email Security & Identity Protection — hardened a live M365 tenant with mail flow rules, anti-spam policies, and MFA enforcement, plus improved Microsoft Secure Score using Defender recommendations
-
-=== REFERENCES ===
-- Sudan Maharjan, Director / IT Head, Newa IT Solutions — +61 481 366 151, sudan@newaitsolutions.com
-
-=== HOBBIES & PERSONAL INTERESTS ===
-- Loves playing football and going to the gym regularly
-- Enjoys running and outdoor activities like hiking
-- Passionate about travel and exploring new places
-- Always curious about new technology and keeps up with the latest trends in IT
-
-=== COMMUNICATION & PERSONALITY ===
-- Communication style: calm, confident, and friendly
-- Fluent in English (professional level) — main language is Nepali, can also interact in Hindi
-- Known for explaining technical issues clearly to non-technical people
-- Approachable, patient, and easy to talk to
-
-=== LEARNING & GROWTH MINDSET ===
-- Describes himself as a passionate and quick learner
-- Primarily self-taught through hands-on practice — learns best by actually doing things
-- Also uses YouTube and online resources to supplement learning
-- Always eager to pick up new technologies and tools on the job
-
-=== CAREER GOALS & MOTIVATION ===
-- In 2–3 years, aims to reach a senior/advanced level in his IT career
-- Motivated by problem-solving and helping people resolve technical issues
-- Long-term goal: grow into a well-rounded IT professional with expertise in cloud, security, networking, and support
-
-=== WORK STYLE & TEAMWORK ===
-- Prefers working in a team — collaboration is his priority
-- Also capable of independent work when needed
-- Under pressure: stays calm, understands the problem first, tries to solve it himself, and escalates to seniors if stuck
-
-=== HOW TO ANSWER ===
-- Always refer to Anish in third person (he/him)
-- Be warm and positive but stay factual
-- If asked something not covered above, suggest contacting Anish directly at anishgiri915@gmail.com
-- Never claim Anish has skills or experience not listed above`;
-
-    const chatHistory = [];
-
-    function addMsg(text, type) {
-      const d = document.createElement('div');
-      d.className = 'chat-msg ' + type;
-      const b = document.createElement('div');
-      b.className = 'chat-bubble';
-      b.textContent = text;
-      d.appendChild(b);
-      msgs.appendChild(d);
-      msgs.scrollTop = msgs.scrollHeight;
-    }
-
-    function addTyping() {
-      const td = document.createElement('div');
-      td.className = 'chat-typing';
-      td.id = 'chatTyping';
-      td.innerHTML = '<span></span><span></span><span></span>';
-      msgs.appendChild(td);
-      msgs.scrollTop = msgs.scrollHeight;
-    }
-
-    function removeTyping() {
-      const t = document.getElementById('chatTyping');
-      if (t) t.remove();
-    }
-
-    async function sendQ(q) {
-      if (!q.trim()) return;
-      inp.value = '';
-      suggs.style.display = 'none';
-      addMsg(q, 'user');
-      chatHistory.push({ role: 'user', content: q });
-      sendBtn.disabled = true;
-      inp.disabled = true;
-      addTyping();
-
-      try {
-        const response = await fetch('https://anishchat.anishhgirii.workers.dev', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            system: ANISH_SYSTEM_PROMPT,
-            messages: chatHistory
-          })
-        });
-
-        if (!response.ok) throw new Error('API request failed');
-
-        const data = await response.json();
-        const fullReply = data.text || "Sorry, I couldn't get a response right now. You can reach Anish directly at anishgiri915@gmail.com.";
-
-        removeTyping();
-        addMsg(fullReply, 'bot');
-        chatHistory.push({ role: 'assistant', content: fullReply });
-
-      } catch (err) {
-        removeTyping();
-        console.error('Chat error:', err);
-        addMsg("Hmm, there was a connection issue. You can reach Anish directly at anishgiri915@gmail.com or +61 414 720 977.", 'bot');
-      } finally {
-        sendBtn.disabled = false;
-        inp.disabled = false;
-        inp.focus();
-      }
-    }
-
-    sendBtn.addEventListener('click', () => sendQ(inp.value));
-    inp.addEventListener('keydown', e => { if (e.key === 'Enter') sendQ(inp.value); });
-    document.querySelectorAll('.chat-suggestion').forEach(b => b.addEventListener('click', () => sendQ(b.getAttribute('data-q'))));
 
     /* CURSOR TRAIL */
     const dots = [];
